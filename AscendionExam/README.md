@@ -22,3 +22,7 @@
 
 🤖 Open this link on your Android devices (or scan the QR code) to install the app:   
 https://expo.dev/accounts/jdanica15/projects/AscendionExam/builds/37883fc0-2cfe-ects/AscendionExam/builds/37883fc0-2cfe-4213-b3df-36071cdfa969
+
+![alt text](image.png)
+
+![alt text](image-1.png)
