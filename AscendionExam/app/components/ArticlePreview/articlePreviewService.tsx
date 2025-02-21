@@ -3,7 +3,7 @@ import { Dimensions } from "react-native";
 import { useSharedValue, withTiming, useAnimatedStyle } from "react-native-reanimated";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp, NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../types/navigation.types";
+import { RootStackParamList } from "@/types/navigation.types";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 

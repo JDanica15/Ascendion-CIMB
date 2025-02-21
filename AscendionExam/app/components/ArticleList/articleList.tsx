@@ -3,7 +3,7 @@ import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./articleList.style";
-import { ArticleListProps, ArticlePreviewStackNavigationProps, gradientColors } from "../../types/article.types";
+import { ArticleListProps, ArticlePreviewStackNavigationProps, gradientColors } from "@/types/article.types";
 import { useNavigation } from "@react-navigation/native";
 
 const ArticleList: React.FC<ArticleListProps> = ({ articles, onSelect, selectedArticle }) => {

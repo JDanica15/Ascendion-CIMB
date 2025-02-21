@@ -5,7 +5,7 @@ import { PanGestureHandler } from "react-native-gesture-handler";
 import * as Linking from "expo-linking";
 import styles from "./articlePreview.style";
 import { extractArticle, useDynamicTitle, useFadeInAnimation, useSwipeBackGesture } from "./articlePreviewService";
-import { ArticlePreviewStackScreenProps } from "@/app/types/article.types";
+import { ArticlePreviewStackScreenProps } from "@/types/article.types";
 
 const ArticlePreview: React.FC<ArticlePreviewStackScreenProps> = ({ route, navigation }) => {
     const article = extractArticle(route);

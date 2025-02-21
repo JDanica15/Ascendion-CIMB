@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Text, View } from "react-native";
-import ArticleList from "../components/ArticleList/articleList";
-import styles  from "./homeScreen.style";
-import  articles  from "../mockData/article.mock";
-import  {Article}  from "../types/article.types";
+import ArticleList from "../../components/ArticleList/articleList";
+import styles from "./homeScreen.style";
+import articles from "../../mockData/article.mock";
+import { homeScreenService } from "./homeScreenService";
 
 const HomeScreen: React.FC = () => {
-    const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+    const { selectedArticle, setSelectedArticle } = homeScreenService();
     return (
         <View style={styles.container}>
             <View style={styles.listContainer}>
