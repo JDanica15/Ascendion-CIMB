@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "./index";
-import Article from "./articleWebView";
-import ArticlePreview from "./ArticlePreview";
+import HomeScreen from "./screens/homeScreen";
+import Article from "./screens/articleScreen";
+import ArticlePreview from "./screens/articleListScreen";
 import { RootStackParamList } from "./types/navigation.types";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

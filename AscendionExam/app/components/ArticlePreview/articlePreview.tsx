@@ -1,18 +1,15 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { Text, Image, TouchableOpacity } from "react-native";
 import Animated from "react-native-reanimated";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../types/navigation.types";
 import { PanGestureHandler } from "react-native-gesture-handler";
+import * as Linking from "expo-linking";
 import styles from "./articlePreview.style";
 import { extractArticle, useDynamicTitle, useFadeInAnimation, useSwipeBackGesture } from "./articlePreviewService";
+import { ArticlePreviewStackScreenProps } from "@/app/types/article.types";
 
-type ArticlePreviewProps = NativeStackScreenProps<RootStackParamList, "articlePreview">;
-
-const ArticlePreview: React.FC<ArticlePreviewProps> = ({ route, navigation }) => {
+const ArticlePreview: React.FC<ArticlePreviewStackScreenProps> = ({ route, navigation }) => {
     const article = extractArticle(route);
     useDynamicTitle(article?.title);
-
 
     const animatedStyle = useFadeInAnimation();
     const handleSwipeBack = useSwipeBackGesture();
@@ -32,11 +29,19 @@ const ArticlePreview: React.FC<ArticlePreviewProps> = ({ route, navigation }) =>
                         {article.summary}
                     </Text>
                 )}
+
                 <TouchableOpacity
                     style={styles.button}
                     onPress={() => navigation.navigate("article", { link: article.link })}
                 >
                     <Text style={styles.buttonText}>Read more</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={[styles.button, { marginTop: 10 }]}
+                    onPress={() => Linking.openURL(article.link)}
+                >
+                    <Text style={styles.buttonText}>Open in Browser</Text>
                 </TouchableOpacity>
             </Animated.View>
         </PanGestureHandler>

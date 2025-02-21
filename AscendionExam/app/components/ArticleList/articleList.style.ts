@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
         position: 'relative'
     },
     card: {
+        position: 'relative',
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
@@ -22,8 +23,6 @@ const styles = StyleSheet.create({
         padding: 15,
         borderTopLeftRadius: 15,
         borderTopRightRadius: 15,
-        borderBottomEndRadius: 0,
-        borderBottomStartRadius: 0,
         elevation: 3,
         shadowColor: "#000",
         shadowOpacity: 0.2,
@@ -36,10 +35,10 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "bold",
         paddingRight: 15,
-        
         width: 250,
     },
     activeCard: {
+        position: 'relative',
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
@@ -47,8 +46,6 @@ const styles = StyleSheet.create({
         padding: 15,
         borderTopLeftRadius: 15,
         borderTopRightRadius: 15,
-        borderBottomEndRadius: 0,
-        borderBottomStartRadius: 0,
         elevation: 3,
         shadowColor: "#000",
         shadowOpacity: 0.2,
@@ -61,6 +58,13 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         width: 330,
     },
+    iconPosition: {
+        position: 'absolute',
+        top: 30,
+        right: 10,
+        color: 'white',
+        fontSize: 24,
+    }
 });
 
 export default styles;

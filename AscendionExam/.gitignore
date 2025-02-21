@@ -113,3 +113,4 @@ fastlane/test_output/
 firebase-debug.log
 google-services.json
 ios/GoogleService-Info.plist
+eas.json

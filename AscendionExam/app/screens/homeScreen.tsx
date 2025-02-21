@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Text, View } from "react-native";
-import ArticleList from "./components/ArticleList/articleList";
+import ArticleList from "../components/ArticleList/articleList";
 import styles  from "./homeScreen.style";
-import  articles  from "./mockData/article.mock";
-import  {Article}  from "./types/article.types";
+import  articles  from "../mockData/article.mock";
+import  {Article}  from "../types/article.types";
 
 const HomeScreen: React.FC = () => {
     const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);

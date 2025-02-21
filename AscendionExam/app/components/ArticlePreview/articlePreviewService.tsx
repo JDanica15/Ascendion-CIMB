@@ -1,8 +1,8 @@
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useCallback } from "react";
 import { Dimensions } from "react-native";
 import { useSharedValue, withTiming, useAnimatedStyle } from "react-native-reanimated";
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { NativeStackNavigationProp, NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../types/navigation.types";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
@@ -12,26 +12,23 @@ const useFadeInAnimation = () => {
 
     useEffect(() => {
         opacity.value = withTiming(1, { duration: 400 });
-    }, []);
+    }, [opacity]);
 
-    return useAnimatedStyle(() => ({
-        opacity: opacity.value,
-    }));
+    return useAnimatedStyle(() => ({ opacity: opacity.value }));
 };
 
 const useSwipeBackGesture = () => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-    return ({ nativeEvent }: any) => {
+    return useCallback(({ nativeEvent }: any) => {
         if (nativeEvent.translationX > SCREEN_WIDTH * 0.15) {
-            navigation.goBack();
+            navigation.canGoBack() ? navigation.goBack() : navigation.navigate("Home");
         }
-    };
+    }, [navigation]);
 };
 
-const extractArticle = (route: NativeStackScreenProps<RootStackParamList, "articlePreview">["route"]) => {
-    return route.params?.article ?? {};
-};
+const extractArticle = (route: NativeStackScreenProps<RootStackParamList, "articlePreview">["route"]) =>
+    route.params?.article ?? {};
 
 const useDynamicTitle = (title?: string) => {
     const navigation = useNavigation();
@@ -43,5 +40,4 @@ const useDynamicTitle = (title?: string) => {
     }, [navigation, title]);
 };
 
-// ✅ Proper combined export
 export { useFadeInAnimation, useSwipeBackGesture, extractArticle, useDynamicTitle };
