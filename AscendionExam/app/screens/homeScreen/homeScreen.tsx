@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import ArticleList from "../../components/ArticleList/articleList";
 import styles from "./homeScreen.style";
-import articles from "../../mockData/article.mock";
+import articles from "@/mockData/article.mock";
 import { homeScreenService } from "./homeScreenService";
 
 const HomeScreen: React.FC = () => {
